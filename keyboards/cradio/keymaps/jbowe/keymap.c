@@ -3,7 +3,7 @@
 #include QMK_KEYBOARD_H
 
 enum layers {
-  _CANARY,
+  _QWERTY,
   _LOWER,
   _RAISE,
   _ADJUST
@@ -15,28 +15,28 @@ enum layers {
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
-/* Canary (Custom)
+/* QWERTY (Custom)
  * ,---------------------------------------------------------------------.
- * |   W  |   L  |   Y  |   P  |   B  |   '  |   F  |   O  |   U  |   Q  |
+ * |   Q  |   W  |   E  |   R  |   T  |   Y  |   U  |   I  |   O  |   P  |
  * |------+------+------+------+------+------+------+------+------+------|
- * |   D  |LALT/R|LGUI/S|LCTL/T|   G  |   M  |RCTL/N|RGUI/E|RALT/I|   A  |
+ * |   A  |LALT/S|LGUI/D|LCTL/F|   G  |   H  |RCTL/J|RGUI/K|RALT/L|   '  |
  * |------+------+------+------+------+------+------+------+------+------|
- * |   Z  |   X  |   C  |   V  |   K  |   /  |   H  |   ,  |   .  |   J  |
+ * |   Z  |   X  |   C  |   V  |   B  |   N  |   M  |   ,  |   .  |   /  |
  * `------+------+------+------+------+------+------+------+------+------'
  *                      |TL2/SP|Shift |TL1/RT| BKSP |                     
  *                      `---------------------------'                     
  */
-    [_CANARY] = LAYOUT_split_3x5_2(
-    KC_W,       KC_L,       KC_Y,       KC_P, KC_B, KC_QUOT,       KC_F,       KC_O,       KC_U,KC_Q,
-    KC_D,ALT_T(KC_R),GUI_T(KC_S),CTL_T(KC_T), KC_G,    KC_M,CTL_T(KC_N),GUI_T(KC_E),ALT_T(KC_I),KC_A,
-    KC_Z,    KC_X,    KC_C,    KC_V,    KC_K,        KC_SLSH,    KC_H,    KC_COMM, KC_DOT,  KC_J,
+    [_QWERTY] = LAYOUT_split_3x5_2(
+    KC_Q,       KC_W,       KC_E,       KC_R, KC_T, KC_Y,       KC_U,       KC_I,       KC_O,KC_P,
+    KC_A,ALT_T(KC_S),GUI_T(KC_D),CTL_T(KC_F), KC_G,    KC_H,CTL_T(KC_J),GUI_T(KC_K),ALT_T(KC_L),KC_QUOT,
+    KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,        KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH,
                        LT(2,KC_SPC), KC_LSFT,   LT(1,KC_ENT), KC_BSPC
     ),
 /* LOWER
  * ,---------------------------------------------------------------------.
  * |   1  |   2  |   3  |   4  |   5  |   6  |   7  |   8  |   9  |   0  |
  * |------+------+------+------+------+------+------+------+------+------|
- * |   4  |   5  |   6  |      | ESC  | ESC  | LEFT | DOWN |  UP  | RIGHT|
+ * |   4  |   5  |   6  |      | ESC  | LEFT | DOWN |  UP  | RIGHT| ESC  |
  * |------+------+------+------+------+------+------+------+------+------|
  * |   7  |   8  |   9  |   0  | TAB  | TAB  |      |      |      |      |
  * `------+------+------+------+------+------+------+------+------+------'
@@ -45,7 +45,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  */
     [_LOWER] = LAYOUT_split_3x5_2(
     KC_1,    KC_2,    KC_3,    KC_4,       KC_5,       KC_6,       KC_7,          KC_8,         KC_9,       KC_0,
-    KC_4,    KC_5,    KC_6, _______,     KC_ESC,     KC_ESC,    KC_LEFT,       KC_DOWN,        KC_UP,    KC_RGHT,
+    KC_4,    KC_5,    KC_6, _______,     KC_ESC,    KC_LEFT,       KC_DOWN,        KC_UP,    KC_RGHT,     KC_ESC,
     KC_7,    KC_8,    KC_9,    KC_0,     KC_TAB,     KC_TAB,    _______, C(S(KC_MINS)), C(S(KC_EQL)),    _______,
                             _______,    KC_LGUI,    _______,    _______
     ),
